@@ -40,12 +40,17 @@ map('n', '<left>', ':vertical resize-5<CR>')
 map('n', '<right>', ':vertical resize+5<CR>')
 
 -- NvimTree
-map('n', '<C-n>', ':NvimTreeToggle<CR>')            -- open/close
-map('n', '<leader>n', ':NvimTreeFindFile<CR>')      -- search file
+map('n', '<C-n>', ':NvimTreeToggle<CR>') -- open/close
+map('n', '<leader>n', ':NvimTreeFindFile<CR>') -- search file
 
 -- telescope.nvim
-map('n', '<leader>ff', '<cmd>Telescope find_files<cr>')
-map('n', '<leader>fg', '<cmd>Telescope live_grep<cr>')
-map('n', '<leader>fb', '<cmd>Telescope buffers<cr>')
-map('n', '<leader>fh', '<cmd>Telescope help_tags<cr>')
-map('n', '<leader>fp', '<cmd>Telescope resume<cr>')
+map('n', '<leader>ff', '<cmd>Telescope find_files <cr>')
+map("n", '<leader>fa', "<cmd>Telescope find_files follow=true no_ignore=true hidden=true <cr>")
+map("n", '<leader>fo', "<cmd>Telescope oldfiles <cr>")
+map('n', '<leader>fw', '<cmd>Telescope live_grep <cr>')
+map("n", '<leader>fs', "<cmd>Telescope grep_string <cr>")
+map('n', '<leader>fb', '<cmd>Telescope buffers <cr>')
+map('n', '<leader>fp', '<cmd>Telescope resume <cr>')
+map("n", '<leader>cm', "<cmd>Telescope git_commits <cr>")
+map("n", '<leader>gt', "<cmd>Telescope git_status <cr>")
+map('n', '<leader>fh', '<cmd>Telescope help_tags <cr>')

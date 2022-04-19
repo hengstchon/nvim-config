@@ -53,6 +53,7 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
   -- Highlighting references
@@ -64,14 +65,14 @@ local on_attach = function(client, bufnr)
         autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
       augroup END
-    ]], false)
+    ]] , false)
   end
 
   -- Enable completion triggered by <c-x><c-o>
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   -- Mappings.
-  local opts = { noremap=true, silent=true }
+  local opts = { noremap = true, silent = true }
 
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
@@ -86,10 +87,10 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-  buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-  buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-  buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+  buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+  buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+  buf_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
+  buf_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
   buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 
 end
@@ -133,3 +134,33 @@ for _, lsp in ipairs(servers) do
     }
   }
 end
+
+lspconfig.intelephense.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  trace = "verbose",
+  init_options = {
+    -- See https://github.com/bmewburn/intelephense-docs/blob/master/installation.md#initialisation-options
+    -- Optional absolute path to storage dir. Defaults to os.tmpdir()
+    storagePath = "/tmp/intelephense",
+    -- Optional absolute path to a global storage dir. Defaults to os.homedir()
+    globalStoragePath = os.getenv "HOME" .. "/.cache/intelephense",
+    --  Optional licence key or absolute path to a text file containing the licence key.
+    -- {os.homedir()}/intelephense/licence.txt will also be checked by default
+    -- if initializationOptions are not exposed by client.
+    licenceKey = os.getenv "INTELEPHENSE_LICENCE_KEY" or "",
+    -- clearCache = Optional flag to clear server state. State can also be cleared by deleting {storagePath}/intelephense
+  },
+  settings = {
+    -- see https://github.com/bmewburn/intelephense-docs/blob/master/gettingStarted.md
+    intelephense = {
+      files = {
+        -- Maximum file size in bytes
+        maxSize = 5000000,
+      },
+      environment = {
+        phpVersion = "7.4.0",
+      },
+    },
+  },
+}

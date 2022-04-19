@@ -42,8 +42,8 @@ local vi_mode_utils = require 'feline.providers.vi_mode'
 
 -- LSP diagnostic
 local lsp_get_diag = function(str)
-  local count = vim.lsp,diagnostic.get_count(0, str)
-  return (count > 0) and ' '..count..' ' or ''
+  local count = vim.lsp, diagnostic.get_count(0, str)
+  return (count > 0) and ' ' .. count .. ' ' or ''
 end
 
 local separator = '|'
@@ -54,7 +54,7 @@ local comps = {
   vi_mode = {
     left = {
       provider = function()
-        local label = ' '..vi_mode_utils.get_vim_mode()..' '
+        local label = ' ' .. vi_mode_utils.get_vim_mode() .. ' '
         return label
       end,
       hl = function()
@@ -164,7 +164,7 @@ local comps = {
     },
     warn = {
       provider = 'diagnostic_warnings',
-      icon = ' ' ,
+      icon = ' ',
       hl = { fg = colors.yellow },
       left_sep = ' ',
     },

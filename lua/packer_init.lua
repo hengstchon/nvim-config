@@ -73,25 +73,27 @@ return packer.startup(function(use)
   }
 
   -- Statusline
-  use {
-    'famiu/feline.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons' },
-  }
+  use 'famiu/feline.nvim'
 
   -- git labels
-  use {
-    'lewis6991/gitsigns.nvim',
-    requires = { 'nvim-lua/plenary.nvim' },
-    config = function()
-      require('gitsigns').setup()
-    end
-  }
+  use 'lewis6991/gitsigns.nvim'
 
   -- fuzzy finder
   use {
     'nvim-telescope/telescope.nvim',
-    requires = { {'nvim-lua/plenary.nvim'} }
+    requires = { { 'nvim-lua/plenary.nvim' } }
   }
+
+  -- commenting
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup()
+    end
+  }
+
+  use {"machakann/vim-sandwich", event = "VimEnter"}
+  use {"mattn/emmet-vim", event = "VimEnter"}
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

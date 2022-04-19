@@ -24,7 +24,7 @@ cmp.setup {
     end,
   },
 
--- Completion settings
+  -- Completion settings
   completion = {
     --completeopt = 'menu,menuone,noselect'
     keyword_length = 2
@@ -72,4 +72,3 @@ cmp.setup {
     { name = 'buffer' },
   },
 }
-
