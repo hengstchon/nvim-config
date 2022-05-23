@@ -37,7 +37,6 @@ end
 --- Each of these are documented in `:help nvim-tree.OPTION_NAME`
 nvim_tree.setup {
   open_on_setup = true,
-  auto_close = false,
   update_cwd = true,
   view = { width = 32 },
   renderer = {

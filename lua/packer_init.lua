@@ -59,6 +59,10 @@ return packer.startup(function(use)
 
   -- LSP
   use 'neovim/nvim-lspconfig'
+  use {
+    "jose-elias-alvarez/null-ls.nvim",
+    requires = { "nvim-lua/plenary.nvim" },
+  }
 
   -- Autocomplete
   use {
@@ -92,8 +96,8 @@ return packer.startup(function(use)
     end
   }
 
-  use {"machakann/vim-sandwich", event = "VimEnter"}
-  use {"mattn/emmet-vim", event = "VimEnter"}
+  use { "machakann/vim-sandwich", event = "VimEnter" }
+  use { "mattn/emmet-vim", event = "VimEnter" }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
