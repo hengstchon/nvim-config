@@ -104,7 +104,7 @@ cmd [[
 
 -- 2 spaces for selected filetypes
 cmd [[
-  autocmd FileType xml,html,xhtml,css,scss,javascript,json,lua,yaml setlocal shiftwidth=2 tabstop=2
+  autocmd FileType xml,html,xhtml,css,scss,javascript,javascriptreact,typescript,typescriptreact,json,lua,yaml setlocal shiftwidth=2 tabstop=2
 ]]
 
 -- audo indent for php
