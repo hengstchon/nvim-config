@@ -50,12 +50,19 @@ return packer.startup(function(use)
   use {
     'windwp/nvim-autopairs',
     config = function()
-      require('nvim-autopairs').setup()
+      local npairs = require('nvim-autopairs')
+      npairs.setup {
+        check_ts = true,
+        ignored_next_char = "[%w%.]" -- will ignore alphanumeric and `.` symbol
+      }
     end
   }
 
   -- Treesitter interface
-  use 'nvim-treesitter/nvim-treesitter'
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate'
+  }
 
   -- LSP
   use 'neovim/nvim-lspconfig'

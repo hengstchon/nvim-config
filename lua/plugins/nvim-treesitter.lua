@@ -28,4 +28,7 @@ nvim_treesitter.setup {
     -- `false` will disable the whole extension
     enable = true,
   },
+  indent = {
+    enable = true
+  }
 }
