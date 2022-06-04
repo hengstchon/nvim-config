@@ -34,7 +34,6 @@ nvim_tree.setup {
     change_dir = { enable = false },
   },
   filters = {
-    dotfiles = true,
     custom = { 'node_modules', '.cache', '.bin' },
   },
 }
