@@ -39,5 +39,5 @@ vim.keymap.set('n', '<right>', ':vertical resize+5<CR>')
 -- vim.keymap.set('n', '<leader>th', '<C-w>t<C-w>H') -- change horizontal to vertical
 
 -- NvimTree
-vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>') -- open/close
-vim.keymap.set('n', '<leader>n', ':NvimTreeFindFile<CR>') -- search file
+vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>', { silent = true }) -- open/close
+vim.keymap.set('n', '<leader>n', ':NvimTreeFindFile<CR>', { silent = true }) -- search file
