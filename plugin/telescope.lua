@@ -5,8 +5,17 @@ if not ok then
 end
 
 local builtin = require('telescope.builtin')
+local actions = require("telescope.actions")
 
-telescope.setup()
+telescope.setup {
+  defaults = {
+    mappings = {
+      i = {
+        ["<esc>"] = actions.close
+      },
+    },
+  }
+}
 
 telescope.load_extension 'file_browser'
 telescope.load_extension 'fzf'

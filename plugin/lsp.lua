@@ -122,7 +122,25 @@ mason_lsp.setup_handlers {
         },
       }
     }
-  end
+  end,
+  ['intelephense'] = function()
+    nvim_lsp.intelephense.setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
+      init_options = {
+        storagePath = "/tmp/intelephense",
+        licenceKey = "TTYS3",
+      },
+      settings = {
+        intelephense = {
+          files = {
+            -- Maximum file size in bytes
+            maxSize = 5000000,
+          },
+        },
+      },
+    }
+  end,
 }
 
 
