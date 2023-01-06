@@ -32,17 +32,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
--- Remove whitespace on save
-vim.cmd [[autocmd BufWritePre * :%s/\s\+$//e]]
-
--- Don't auto commenting new lines
-vim.cmd [[autocmd BufEnter * set fo-=c fo-=r fo-=o]]
-
--- Remove line length marker for selected filetypes
-vim.cmd [[
-  autocmd FileType text,markdown,html,xhtml,javascript setlocal cc=0
-]]
-
 -- 2 spaces for selected filetypes
 vim.cmd [[
   autocmd FileType xml,html,xhtml,css,scss,javascript,javascriptreact,typescript,typescriptreact,json,lua,yaml,prisma setlocal shiftwidth=2 tabstop=2
