@@ -27,12 +27,18 @@ vim.opt.shortmess:append 'I' -- Disable nvim intro
 -- Highlight on yank
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
+  pattern = '*',
   callback = function() vim.highlight.on_yank() end,
   group = highlight_group,
-  pattern = '*',
 })
 
--- 2 spaces for selected filetypes
-vim.cmd [[
-  autocmd FileType xml,html,xhtml,css,scss,javascript,javascriptreact,typescript,typescriptreact,json,lua,yaml,prisma setlocal shiftwidth=2 tabstop=2
-]]
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {
+    'xml', 'html', 'xhtml', 'css', 'scss', 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'json',
+    'lua', 'yaml', 'prisma',
+  },
+  callback = function()
+    vim.opt.tabstop = 2
+    vim.opt.shiftwidth = 2
+  end,
+})
