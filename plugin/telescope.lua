@@ -20,7 +20,7 @@ telescope.setup {
 telescope.load_extension 'file_browser'
 telescope.load_extension 'fzf'
 
-vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Tele: files in CWD' })
+vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'TS: files in CWD' })
 vim.keymap.set('n', '<leader>fa', function()
   builtin.find_files
   {
@@ -28,7 +28,7 @@ vim.keymap.set('n', '<leader>fa', function()
     no_ignore = true,
     hidden = true,
   }
-end, { desc = 'Tele: all files in CWD' })
+end, { desc = 'TS: all files in CWD' })
 vim.keymap.set('n', '<leader>fo', builtin.oldfiles, { desc = 'TS: previously open files' })
 vim.keymap.set('n', '<leader>fw', builtin.live_grep, { desc = 'TS: search string in CWD' })
 vim.keymap.set('n', '<leader>fs', builtin.grep_string, { desc = 'TS: search under cursor in CWD' })
