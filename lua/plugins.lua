@@ -29,7 +29,7 @@ return require('packer').startup(function(use)
   use 'JoosepAlviste/nvim-ts-context-commentstring'
   use 'windwp/nvim-ts-autotag' -- auto close and auto rename html tag
 
-  use { 'nvim-telescope/telescope.nvim', tag = '0.1.0' }
+  use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
   use 'nvim-telescope/telescope-file-browser.nvim'
 
