@@ -58,7 +58,7 @@ return {
   --Indent line
   {
     'lukas-reineke/indent-blankline.nvim',
-    event = 'VeryLazy',
+    event = 'BufReadPre',
     opts = {
       char = "▏",
       use_treesitter = true,
@@ -83,7 +83,7 @@ return {
   -- git labels
   {
     'lewis6991/gitsigns.nvim',
-    event = 'VeryLazy',
+    event = 'BufReadPre',
     opts = {
       on_attach = function(bufnr)
         local gs = package.loaded.gitsigns
