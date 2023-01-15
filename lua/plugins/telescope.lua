@@ -5,7 +5,6 @@ return {
     dependencies = {
       { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make', cond = vim.fn.executable 'make' == 1 },
       'nvim-telescope/telescope-file-browser.nvim',
-
     },
     config = function()
       local telescope = require('telescope')
