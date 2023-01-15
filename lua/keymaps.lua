@@ -37,7 +37,3 @@ vim.keymap.set('n', '<right>', ':vertical resize+5<CR>')
 -- Change split orientation
 -- vim.keymap.set('n', '<leader>tk', '<C-w>t<C-w>K') -- change vertical to horizontal
 -- vim.keymap.set('n', '<leader>th', '<C-w>t<C-w>H') -- change horizontal to vertical
-
--- NvimTree
-vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>', { silent = true }) -- open/close
-vim.keymap.set('n', '<leader>n', ':NvimTreeFindFile<CR>', { silent = true }) -- search file
