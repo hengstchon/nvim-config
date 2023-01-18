@@ -7,7 +7,6 @@ vim.wo.number         = true -- Show line number
 vim.opt.signcolumn    = 'yes' -- always show
 vim.opt.splitright    = true -- Vertical split to the right
 vim.opt.splitbelow    = true -- Orizontal split to the bottom
-vim.opt.hlsearch      = false
 vim.opt.ignorecase    = true -- Ignore case letters when search
 vim.opt.smartcase     = true -- Ignore lowercase for the whole pattern
 vim.opt.linebreak     = true -- Wrap on word boundary

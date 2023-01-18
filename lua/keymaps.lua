@@ -32,7 +32,7 @@ vim.keymap.set('n', '<left>', ':vertical resize-5<CR>')
 vim.keymap.set('n', '<right>', ':vertical resize+5<CR>')
 
 -- Clear search highlighting
--- vim.keymap.set('n', '<leader><CR>', ':nohlsearch<CR>')
+vim.keymap.set('n', '<Esc>', ':nohlsearch<CR>', { noremap = true, silent = true })
 
 -- Change split orientation
 -- vim.keymap.set('n', '<leader>tk', '<C-w>t<C-w>K') -- change vertical to horizontal
