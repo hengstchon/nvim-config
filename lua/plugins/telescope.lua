@@ -5,6 +5,7 @@ return {
     dependencies = {
       { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make', cond = vim.fn.executable 'make' == 1 },
       'nvim-telescope/telescope-file-browser.nvim',
+      'benfowler/telescope-luasnip.nvim',
     },
     config = function()
       local telescope = require('telescope')
@@ -23,6 +24,7 @@ return {
 
       telescope.load_extension 'file_browser'
       telescope.load_extension 'fzf'
+      telescope.load_extension 'luasnip'
 
       vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'TS: files in CWD' })
       vim.keymap.set('n', '<leader>fa', function()
@@ -47,6 +49,7 @@ return {
       vim.keymap.set('n', '<leader>gt', builtin.git_status, { desc = 'TS: changes per file with diff' })
       vim.keymap.set('n', '<leader>bf', builtin.current_buffer_fuzzy_find, { desc = 'TS: search in buffer' })
       vim.keymap.set('n', '<leader>fn', telescope.extensions.file_browser.file_browser, { desc = 'TS: file browser' })
+      vim.keymap.set('n', '<leader>sn', telescope.extensions.luasnip.luasnip, { desc = 'TS: luasnip' })
     end
   },
 }
