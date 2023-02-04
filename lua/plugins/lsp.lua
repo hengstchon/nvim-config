@@ -54,7 +54,10 @@ return {
         { border = 'rounded' }
       )
 
-      local on_attach = function(_, bufnr)
+      -- formatting on save
+      local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
+      local on_attach = function(client, bufnr)
         local bufopts = { noremap = true, silent = true, buffer = bufnr }
         vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
@@ -71,6 +74,16 @@ return {
         vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
         vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
         vim.keymap.set('n', '<leader>fm', function() vim.lsp.buf.format() end, bufopts)
+        if client.supports_method("textDocument/formatting") then
+          vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+          vim.api.nvim_create_autocmd("BufWritePre", {
+            pattern = { "*.tsx" },
+            group = augroup,
+            callback = function()
+              vim.lsp.buf.format({ bufnr = bufnr })
+            end,
+          })
+        end
       end
 
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
