@@ -80,7 +80,7 @@ return {
             pattern = { "*.tsx" },
             group = augroup,
             callback = function()
-              vim.lsp.buf.format({ bufnr = bufnr })
+              vim.lsp.buf.format()
             end,
           })
         end
