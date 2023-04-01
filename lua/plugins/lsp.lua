@@ -95,8 +95,8 @@ return {
             capabilities = capabilities,
           }
         end,
-        ['sumneko_lua'] = function()
-          nvim_lsp.sumneko_lua.setup {
+        ['lua_ls'] = function()
+          nvim_lsp.lua_ls.setup {
             on_attach = on_attach,
             capabilities = capabilities,
             settings = {
