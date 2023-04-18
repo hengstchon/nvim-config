@@ -38,9 +38,9 @@ return {
           focusable = false,
           border = 'rounded',
           -- from vim.diagnostic.open_float()
-          header = '', -- default: Diagnostics
+          header = '',       -- default: Diagnostics
           source = 'always', -- show source if truthy
-          prefix = '', -- default: list number
+          prefix = '',       -- default: list number
         },
       })
 
@@ -108,6 +108,19 @@ return {
               },
             }
           }
+        end,
+        ['tsserver'] = function()
+          require("typescript").setup({
+            disable_commands = false, -- prevent the plugin from creating Vim commands
+            debug = false,            -- enable debug logging for commands
+            go_to_source_definition = {
+              fallback = true,        -- fall back to standard LSP definition on failure
+            },
+            server = {
+              on_attach = on_attach,
+              capabilities = capabilities,
+            },
+          })
         end,
         ['intelephense'] = function()
           nvim_lsp.intelephense.setup {
