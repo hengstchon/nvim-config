@@ -131,11 +131,17 @@ return {
     end
   },
 
+  -- typescript
+  {
+    'jose-elias-alvarez/typescript.nvim',
+    config = true,
+  },
+
   -- formatting & diagnostics
   {
     'jose-elias-alvarez/null-ls.nvim',
     event = "BufReadPre",
-    dependencies = { "mason.nvim" },
+    dependencies = { "mason.nvim", "typescript.nvim" },
     opts = function()
       local nls = require('null-ls')
       local formatting = nls.builtins.formatting
@@ -145,6 +151,7 @@ return {
           formatting.prettierd,
           formatting.black,
           diagnostics.eslint_d,
+          require("typescript.extensions.null-ls.code-actions"),
         },
       }
     end
