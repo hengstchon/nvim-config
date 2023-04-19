@@ -1,4 +1,9 @@
 return {
+  -- typescript
+  {
+    'jose-elias-alvarez/typescript.nvim',
+  },
+
   {
     'williamboman/mason.nvim',
     config = true,
@@ -142,12 +147,6 @@ return {
         end,
       }
     end
-  },
-
-  -- typescript
-  {
-    'jose-elias-alvarez/typescript.nvim',
-    config = true,
   },
 
   -- formatting & diagnostics
