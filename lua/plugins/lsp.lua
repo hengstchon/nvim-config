@@ -145,6 +145,22 @@ return {
             },
           }
         end,
+        ['tailwindcss'] = function()
+          nvim_lsp.tailwindcss.setup {
+            on_attach = on_attach,
+            capabilities = capabilities,
+            settings = {
+              tailwindCSS = {
+                experimental = {
+                  classRegex = {
+                    { "cva\\(([^)]*)\\)",
+                      "[\"'`]([^\"'`]*).*?[\"'`]" },
+                  },
+                },
+              },
+            },
+          }
+        end,
       }
     end
   },
