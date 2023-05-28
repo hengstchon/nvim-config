@@ -1,5 +1,5 @@
 return {
-  'nvim-lua/plenary.nvim', -- Common utilities
+  'nvim-lua/plenary.nvim',        -- Common utilities
   'kyazdani42/nvim-web-devicons', -- Icons
 
   -- Colorscheme
@@ -18,7 +18,7 @@ return {
     'nvim-tree/nvim-tree.lua',
     config = true,
     keys = {
-      { '<C-n>', ':NvimTreeToggle<CR>', silent = true },
+      { '<C-n>',     ':NvimTreeToggle<CR>',   silent = true },
       { '<leader>n', ':NvimTreeFindFile<CR>', silent = true },
     }
   },
@@ -48,11 +48,9 @@ return {
 
   -- Color highlighter
   {
-    'norcalli/nvim-colorizer.lua',
+    'brenoprata10/nvim-highlight-colors',
     event = 'VeryLazy',
-    config = function()
-      require('colorizer').setup(nil, { css = true })
-    end,
+    config = true,
   },
 
   --Indent line
@@ -122,7 +120,6 @@ return {
         -- Text object
         map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
       end
-
     }
   },
 }
