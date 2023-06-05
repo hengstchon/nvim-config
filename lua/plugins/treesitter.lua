@@ -10,11 +10,11 @@ return {
     },
     config = function()
       require('nvim-treesitter.configs').setup {
-        ensure_installed = {
-          'help', 'json', 'yaml',
-          'css', 'html', 'javascript', 'typescript', 'tsx',
-          'bash', 'vim', 'lua', 'python',
-        },
+        -- ensure_installed = {
+        --   'help', 'json', 'yaml',
+        --   'css', 'html', 'javascript', 'typescript', 'tsx',
+        --   'bash', 'vim', 'lua', 'python',
+        -- },
         highlight = { enable = true },
         indent = { enable = true },
         textobjects = {
