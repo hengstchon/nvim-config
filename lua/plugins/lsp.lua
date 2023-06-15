@@ -4,6 +4,11 @@ return {
     'jose-elias-alvarez/typescript.nvim',
   },
 
+  -- json
+  {
+    'b0o/schemastore.nvim',
+  },
+
   {
     'williamboman/mason.nvim',
     config = true,
@@ -127,6 +132,18 @@ return {
               capabilities = capabilities,
             },
           })
+        end,
+        ['jsonls'] = function()
+          nvim_lsp.jsonls.setup {
+            on_attach = on_attach,
+            capabilities = capabilities,
+            settings = {
+              json = {
+                schemas = require('schemastore').json.schemas(),
+                validate = { enable = true },
+              },
+            },
+          }
         end,
         ['intelephense'] = function()
           nvim_lsp.intelephense.setup {
