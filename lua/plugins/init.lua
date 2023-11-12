@@ -57,12 +57,17 @@ return {
   {
     'lukas-reineke/indent-blankline.nvim',
     event = 'BufReadPre',
+    main = 'ibl',
     opts = {
-      char = "▏",
-      use_treesitter = true,
-      show_first_indent_level = false,
-      show_current_context = true,
-      context_char = "▏",
+      indent = { char = "▏", },
+      scope = { 
+        char = "▏",
+        highlight = { "SpecialKey" },
+        show_start = false,
+        include = {
+          node_type = { ["*"] = { "*" } },
+        }
+      },
     },
   },
 
